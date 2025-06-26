@@ -206,7 +206,7 @@ Edit `src/config.h` to select your hardware and input method:
 ## Disclaimer on Switch Fit
 
 > **IMPORTANT:**  
-> If you are not using the original Honeywell 1MT1-7 switch, we **cannot guarantee fit** in your enclosure. Always verify dimensions before ordering or modifying your housing.
+> If you are not using the original Honeywell 1MT1-7 switch, we **cannot guarantee fit** in your enclosure. Always verify dimensions before ordering or modifying your housing. In fact, **we don't guarantee anything at all!** What do you expect, it's FOSS!
 
 ---
 
