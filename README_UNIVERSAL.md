@@ -197,6 +197,53 @@ pio run
 pio run -t upload
 ```
 
+## 📝 Detailed Flashing Instructions (M5Stack Core & Tough)
+
+### Prerequisites
+- **Install [VS Code](https://code.visualstudio.com/) and [PlatformIO IDE](https://platformio.org/install/ide?install=vscode)**
+- **Connect your M5Stack device to your computer via USB**
+- For Windows: Install the [CP210x USB to UART Bridge VCP Drivers](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers) if your device is not detected
+
+### Step-by-Step
+1. **Clone or download this repository**
+2. **Open the project folder in VS Code**
+3. **Select the correct PlatformIO environment** (see below)
+4. **Connect your M5Stack device via USB**
+5. **Select the correct serial port** (if needed):
+   - Click the PlatformIO icon (alien head) in the VS Code sidebar
+   - Go to "Devices" to see available serial ports
+   - If multiple ports are listed, unplug/replug your device to identify the correct one
+6. **Build and upload the firmware:**
+   - Open the VS Code terminal or use the PlatformIO toolbar
+   - Run the following command for your device:
+     - **M5Stack Core:**
+       ```bash
+       pio run -e m5stack-core -t upload
+       ```
+     - **M5Stack Tough:**
+       ```bash
+       pio run -e m5stack-tough -t upload
+       ```
+     - **M5Stack Tough + External Buttons:**
+       ```bash
+       pio run -e m5stack-tough-external -t upload
+       ```
+     - **Blitz Buttons (Bluetooth):**
+       ```bash
+       pio run -e m5stack-blitz-buttons -t upload
+       ```
+     - **Blitz Buttons (Wired):**
+       ```bash
+       pio run -e m5stack-blitz-buttons-wired -t upload
+       ```
+7. **Wait for the upload to complete.** The device will automatically reset and run the new firmware.
+
+### Troubleshooting
+- If upload fails, press and hold the reset button on the M5Stack while starting the upload, then release when you see "Connecting..."
+- Make sure no other program (like Arduino IDE or serial monitor) is using the COM/serial port
+- Try a different USB cable or port if the device is not detected
+- For more help, see the [PlatformIO Docs](https://docs.platformio.org/en/latest/platforms/espressif32.html#m5stack-family)
+
 ## 🎮 Controls
 
 ### M5Stack Core
