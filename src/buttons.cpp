@@ -28,6 +28,10 @@
 #include <menu.h>
 #include <display.h>
 
+#define BUTTON_PREV_PIN 32
+#define BUTTON_SELECT_PIN 33
+#define BUTTON_NEXT_PIN 34
+
 PushButton button_select = PushButton(PIN_BUTTON_SELECT, ENABLE_INTERNAL_PULLUP);
 PushButton button_next = PushButton(PIN_BUTTON_NEXT, ENABLE_INTERNAL_PULLUP);
 PushButton button_prev = PushButton(PIN_BUTTON_PREV, ENABLE_INTERNAL_PULLUP);
@@ -288,6 +292,13 @@ void initButtons() {
   button_prev.onPress(onButtonPrevPress);
   button_prev.onHoldRepeat(BTN_HOLD_DELAY, BTN_HOLD_REPEAT, onButtonPrevHold);
   button_prev.onRelease(onButtonPrevRelease);
+}
+
+
+void setupButtons() {
+  pinMode(BUTTON_PREV_PIN, INPUT_PULLUP);
+  pinMode(BUTTON_SELECT_PIN, INPUT_PULLUP);
+  pinMode(BUTTON_NEXT_PIN, INPUT_PULLUP);
 }
 
 

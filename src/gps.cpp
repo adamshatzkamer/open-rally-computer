@@ -39,6 +39,7 @@ void initializeGps() {
 
   // gps = new TinyGPSPlus();
   SerialGPS.begin(9600, SERIAL_8N1, PIN_GPS_RX, PIN_GPS_TX);
+  Serial.println("GPS module initialized");
 }
 
 void adjustTimeZone() {

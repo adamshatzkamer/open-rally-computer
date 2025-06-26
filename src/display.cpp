@@ -15,6 +15,8 @@
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 
+#include <Adafruit_GFX.h>
+#include <Adafruit_HX8357.h>
 #include <display.h>
 #include <screens/splash.h>
 #include <screens/odometer.h>
@@ -29,22 +31,26 @@
 #include <pins.h>
 #include <memory.h>
 
+// Initialize the TFT FeatherWing display
+Adafruit_HX8357 tft = Adafruit_HX8357(PIN_TFT_CS, PIN_TFT_DC, PIN_TFT_RESET);
+
 // Initialize display
-U8G2_UC1701_MINI12864_F_4W_SW_SPI* u8g2 = new U8G2_UC1701_MINI12864_F_4W_SW_SPI(U8G2_R0,
-  PIN_DISPLAY_CLOCK, PIN_DISPLAY_DATA, PIN_DISPLAY_CS, PIN_DISPLAY_DC, PIN_DISPLAY_RESET);
-
 void initializeDisplay() {
-  initDisplayRotation();
-  initBacklight();
+  tft.begin();
+  tft.setRotation(1); // Landscape mode
+  tft.fillScreen(HX8357_BLACK);
+  tft.setTextColor(HX8357_WHITE);
+  tft.setTextSize(2);
 
-  u8g2->begin(PIN_BUTTON_SELECT, PIN_BUTTON_PREV, PIN_BUTTON_NEXT);
-  u8g2->setContrast(220);
+  // Turn on the backlight
+  pinMode(PIN_TFT_BACKLIGHT, OUTPUT);
+  digitalWrite(PIN_TFT_BACKLIGHT, HIGH);
 }
 
 void drawSplashScreen() {
-  u8g2->clearBuffer();
-  drawScreen(SCREEN_SPLASH);
-  u8g2->sendBuffer();
+  tft.fillScreen(HX8357_BLUE);
+  tft.setCursor(50, 120);
+  tft.print("Open Rally Computer");
 }
 
 void drawScreen(int index) {
@@ -83,29 +89,4 @@ void drawScreen(int index) {
       drawOdometerLayout();
       break;
   }
-}
-
-void initBacklight() {
-  ledcSetup(0, 10000, 8); // LED channel, frequency, resolution
-  ledcAttachPin(PIN_BACKLIGHT, 0);
-
-  setBacklight(memory.config.backlight);
-}
-
-void initDisplayRotation() {
-  if (memory.config.flipScreen) {
-    u8g2->setDisplayRotation(U8G2_R2); // 180 degrees clockwise rotation
-  } else {
-    u8g2->setDisplayRotation(U8G2_R0); // No rotation, landscape
-  }
-}
-
-void setBacklight(int value) {
-  int dutyCycle = map(value, 0, 10, 0, 255); // Map values from 0-10 to 0-255
-
-  // Prevent overshoot
-  if (dutyCycle > 255)
-    dutyCycle = 255;
-
-  ledcWrite(0, dutyCycle); // Channel, duty cycle
 }

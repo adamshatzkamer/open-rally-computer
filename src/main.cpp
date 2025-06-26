@@ -22,6 +22,7 @@
 #include <buttons.h>
 #include <thermistor.h>
 #include <memory.h>
+#include "leds.cpp"
 
 unsigned long previousMillis = 0;
 unsigned long currentMillis = 0;
@@ -30,22 +31,25 @@ void setup(void) {
   // Serial port for debugging
   Serial.begin(115200);
 
-  // Initialize GPS module
-  initializeGps();
+  // Initialize components
+  setupLEDs();
+  setupGPS();
+  setupButtons();
+  setupDisplay();
 
   // Try to load config
   loadConfig(); // Config is loaded before drawing the splash screen to check if flipped 180º
 
-  // Initialize graphic library
+  // Initialize the TFT FeatherWing display
   initializeDisplay();
 
-  // Draw splash screen
+  // Draw the updated splash screen
   drawSplashScreen();
 
-  initButtons();
-
-  delay(2000);
+  delay(3000); // Show splash screen for 3 seconds
   state.currentScreen = SCREEN_ODOMETER;
+
+  Serial.println("System initialized.");
 }
 
 void loop(void) {
@@ -56,6 +60,9 @@ void loop(void) {
   checkButtons();
   pollGpsModule();
 
+  // Indicate activity
+  indicateActivity();
+
   // Tasks that occur every 1 second
   currentMillis = millis();
   if (currentMillis - previousMillis > 1000) {
@@ -64,4 +71,9 @@ void loop(void) {
     // updateTemperature();
     saveConfig(); // Save all to FRAM
   }
+
+  // Read GPS data
+  readGPS();
+
+  delay(500); // Adjust delay as necessary
 }

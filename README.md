@@ -84,6 +84,56 @@ Once the project compiles correctly in your computer, you are ready to flash it 
 2. Go to PlatformIO -> esp32dev -> General -> Upload
 3. PlatformIO should automatically detect the serial port where your ESP32 is connected, buld the project and flash it for you.
 
+## Feather and FeatherWing Compatibility
+
+This version of the Open Rally Computer has been updated to support Adafruit Feather boards and FeatherWings, making it easier to assemble with off-the-shelf components. The recommended hardware includes:
+
+### Required Hardware
+
+1. **Adafruit HUZZAH32 (ESP32 Feather Board)**
+   - [Product Link](https://www.adafruit.com/product/3405)
+   - A powerful microcontroller with WiFi and Bluetooth capabilities.
+
+2. **Adafruit TFT FeatherWing - 3.5" 480x320 Touchscreen (V2 with TSC2007)**
+   - [Product Link](https://www.adafruit.com/product/3651)
+   - A plug-and-play FeatherWing with a vibrant touchscreen display.
+
+3. **Adafruit Ultimate GPS FeatherWing**
+   - [Product Link](https://www.adafruit.com/product/3133)
+   - Provides GPS functionality for accurate navigation.
+
+4. **External GPS Antenna (Recommended)**
+   - [Product Link](https://www.adafruit.com/product/960)
+   - Improves GPS signal reception, especially when the Feather stack blocks the internal antenna.
+
+5. **Buttons and LEDs**
+   - Three tactile buttons for navigation (Previous, Select, Next).
+   - Three LEDs for Power, GPS Lock, and Status/Activity indicators.
+
+### Wiring Instructions
+
+- The FeatherWing display and GPS FeatherWing stack directly onto the HUZZAH32.
+- Buttons and LEDs connect to the following GPIO pins:
+  - **Buttons**: GPIO 32 (Previous), GPIO 33 (Select), GPIO 34 (Next)
+  - **LEDs**: GPIO 2 (Power), GPIO 4 (GPS Lock), GPIO 19 (Status/Activity)
+- External GPS antenna connects to the GPS FeatherWing's SMA connector.
+
+### Assembly Notes
+
+- Ensure all FeatherWings are securely stacked and aligned.
+- Use short jumper wires for buttons and LEDs to minimize clutter.
+- Power the system via USB or a LiPo battery connected to the HUZZAH32.
+
+### Software Setup
+
+- Install the required libraries for the TFT FeatherWing and GPS FeatherWing:
+  - Adafruit_GFX
+  - Adafruit_HX8357
+  - TinyGPS++
+- Follow the instructions in the `platformio.ini` file to configure the project for the HUZZAH32.
+
+This setup provides a beginner-friendly way to build the Open Rally Computer with minimal soldering and wiring. Let us know if you have any questions or suggestions by opening an issue!
+
 ## Contributing
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on the process for submitting pull requests.
