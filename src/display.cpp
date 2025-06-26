@@ -16,7 +16,7 @@
 
 
 #include <Adafruit_GFX.h>
-#include <Adafruit_HX8357.h>
+#include <Adafruit_ILI9341.h>
 #include <display.h>
 #include <screens/splash.h>
 #include <screens/odometer.h>
@@ -31,20 +31,18 @@
 #include <pins.h>
 #include <memory.h>
 
-// Initialize the TFT FeatherWing display
-Adafruit_HX8357 tft = Adafruit_HX8357(PIN_TFT_CS, PIN_TFT_DC, PIN_TFT_RESET);
+// Define the ILI9341 display object
+Adafruit_ILI9341 tft(TFT_CS, TFT_DC, TFT_RST);
 
-// Initialize display
-void initializeDisplay() {
-  tft.begin();
-  tft.setRotation(1); // Landscape mode
-  tft.fillScreen(HX8357_BLACK);
-  tft.setTextColor(HX8357_WHITE);
-  tft.setTextSize(2);
-
-  // Turn on the backlight
-  pinMode(PIN_TFT_BACKLIGHT, OUTPUT);
-  digitalWrite(PIN_TFT_BACKLIGHT, HIGH);
+// Function to initialize the display
+void setupDisplay() {
+  tft.begin(); // Initialize the display
+  tft.setRotation(1); // Set display orientation to landscape
+  tft.fillScreen(ILI9341_BLACK); // Clear the screen with black
+  tft.setTextColor(ILI9341_WHITE); // Set text color to white
+  tft.setTextSize(2); // Set text size
+  tft.setCursor(10, 10); // Set cursor position
+  tft.println("Open Rally Computer"); // Display a welcome message
 }
 
 void drawSplashScreen() {

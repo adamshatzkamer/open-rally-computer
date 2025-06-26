@@ -17,10 +17,13 @@
 
 #pragma once
 
-#define PIN_TFT_CS          14
-#define PIN_TFT_DC          25
-#define PIN_TFT_RESET       27
-#define PIN_TFT_BACKLIGHT   26
+// Pin definitions for the ILI9341 display
+#define TFT_CS   5    // Chip Select
+#define TFT_DC   16   // Data/Command
+#define TFT_RST  17   // Reset
+#define TFT_SCK  18   // SPI Clock
+#define TFT_MOSI 23   // SPI Data (MOSI)
+
 #define PIN_TOUCH_CS        33
 #define PIN_TOUCH_IRQ       32
 

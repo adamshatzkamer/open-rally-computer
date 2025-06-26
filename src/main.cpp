@@ -17,7 +17,7 @@
 
 #include <Arduino.h>
 #include <pins.h>
-#include <display.h>
+#include "display.h"
 #include <gps.h>
 #include <buttons.h>
 #include <thermistor.h>
@@ -75,5 +75,11 @@ void loop(void) {
   // Read GPS data
   readGPS();
 
-  delay(500); // Adjust delay as necessary
+  // Example activity: Update the display with a counter
+  static int counter = 0;
+  tft.setCursor(10, 50);
+  tft.fillRect(10, 50, 200, 20, ILI9341_BLACK); // Clear previous text
+  tft.print("Counter: ");
+  tft.println(counter++);
+  delay(1000); // Wait for 1 second
 }
