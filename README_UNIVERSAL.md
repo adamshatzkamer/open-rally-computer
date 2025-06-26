@@ -31,6 +31,56 @@ A rally computer application that runs on both M5Stack Core and M5Stack Tough de
 - **Best for**: Maximum reliability rally setups
 - **Build Guide**: [Blitz Buttons Instructions on ADVRider](https://www.advrider.com/f/threads/blitz-buttons-bluetooth-digital-rally-remotes-rallyblitz-and-rally-navigator-compatible.1266762/page-9#post-44377507) (skip Bluetooth module for wired version)
 
+## 🧰 Parts List / Bill of Materials (BOM)
+
+**Based on the [Rally Controller With Bluetooth Instructable](https://www.instructables.com/Rally-Controller-With-Bluetooth/):**
+
+- **3D printed shell** (see 3D Print Models below)
+- **MCS18 Push Button IP65 round 18mm 48Vdc/125mA**, part no: 1241.1104.7097
+- **Gasket for MCS18 to IP65**, part no: 0098.9201
+- **Toggle switch (ON)-OFF-(ON) 1CO IP67/IP68**
+  - *Original*: Honeywell 1MT1-7 (discontinued, expensive)
+  - *Recommended Replacement*: C&K M2012SS1W01 or M2013SS1W01 (SPDT, waterproof, momentary, 12mm panel cutout)
+    - Price: $12–$25 USD each
+    - Order from: [DigiKey](https://www.digikey.com/), [Mouser](https://www.mouser.com/), [Newark](https://www.newark.com/)
+    - Search: "C&K M-series waterproof toggle switch"
+- **RND Signal cable 205-01148** – M8, 2m, 6 Pole, A-code, RND Connect, part no: RND 205-01148
+- **M5 nuts and bolts**
+- **O-ring** (outer diameter 13mm, rubber diameter 1.5mm)
+- **Solder iron, cutters, small phillips screwdriver, super glue, small wrench**
+
+**Bluetooth Unit (optional):**
+- 3D printed case (see below)
+- Bluetooth unit (premade or ESP32)
+- Sensor cable, 6 Pole, M8, RND Connect part no: RND 205-01122
+- Rubber O-ring 45mm OD, 3.3mm rubber
+- M5 nuts, M5 screws 22mm
+- 5mm drill
+
+**ESP32 Version:**
+- 3D printed case (see below)
+- ESP32
+- Sensor cable, 6 Pole, M8, RND Connect part no: RND 205-01122
+- M4 15mm screws
+- Micro USB cable
+
+**ESP32 with Battery:**
+- 3D printed case (see below)
+- ESP32
+- Sensor cable, 6 Pole, M8, RND Connect part no: RND 205-01122
+- M4 15mm screws
+- Single or double AA battery holder or 26650 Li-ion battery 3.6V (AA size)
+- On-Off toggle, mounting hole 6x11mm
+
+## 🖨️ 3D Print Models (Thingiverse)
+
+- Handlebar Controller v1.0: [thing:4861162](https://www.thingiverse.com/thing:4861162)
+- Handlebar Controller v2.0: [thing:4890343](https://www.thingiverse.com/thing:4890343)
+- Buttons only: [thing:4890338](https://www.thingiverse.com/thing:4890338)
+- Bluetooth Unit Case: [thing:4890354](https://www.thingiverse.com/thing:4890354)
+- ESP32 with USB Case: [thing:4890356](https://www.thingiverse.com/thing:4890356)
+- ESP32 with Battery Case: [thing:4861175](https://www.thingiverse.com/thing:4861175)
+
 ## 🔧 Configuration
 
 ### Device Selection
@@ -250,3 +300,13 @@ The M5Stack Tough version with external buttons provides the ideal rally compute
 - **Automotive-grade** durability
 
 Choose the configuration that best fits your rally setup!
+
+## Blitz Buttons & Waterproof Switch Replacement
+
+- The original Honeywell 1MT1-7 toggle switch is discontinued and expensive.
+- **Recommended replacement:** C&K M2012SS1W01 or M2013SS1W01 (SPDT, waterproof, momentary, 12mm panel cutout)
+  - Price: $12–$25 USD each
+  - Order from: DigiKey, Mouser, Newark
+  - Search: "C&K M-series waterproof toggle switch"
+- These replacements are dimensionally compatible with the original and require little or no modification to the housing.
+- **Note:** If you are not using the original Honeywell 1MT1-7 switch, we cannot guarantee the fit of any replacement switch in your housing. Always verify dimensions before ordering or modifying your enclosure.
