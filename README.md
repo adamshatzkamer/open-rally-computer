@@ -1,5 +1,7 @@
 # Open Rally Computer for M5Stack
-![Alt text](https://assets.digitalocean.com/articles/alligator/boo.svg "a title")
+
+!(https://raw.githubusercontent.com/adamshatzkamer/open-rally-computer/refs/heads/universal-m5stack-rally-computer/gray_cover_01.png)
+
 A universal, open-source rally computer for motorcycles and adventure vehicles, supporting both M5Stack Core and M5Stack Tough hardware. This project supports multiple input methods: built-in buttons, touchscreen, external wired buttons, and Blitz Buttons (Bluetooth or wired).
 
 ---
