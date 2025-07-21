@@ -1,7 +1,7 @@
 # Open Rally Computer
 
 An open source tripmaster for navigation rallies
-This branch describes the build and contains software to deploy Matto's work on Adafruit feather boards and accessories. Please check out the other branches in this fork for details on using an  ([alternate display](https://github.com/adamshatzkamer/open-rally-computer/tree/ili9341-display)) as well as an all in one hardware solution, an ([M5 Stack](https://github.com/adamshatzkamer/open-rally-computer/tree/universal-m5stack-rally-computer)).
+This branch describes the build and contains software to deploy Matto's work on Adafruit feather boards and accessories. Please check out the other branches in this fork for details on using an  [alternate display](https://github.com/adamshatzkamer/open-rally-computer/tree/ili9341-display) as well as an all in one hardware solution, an [M5 Stack](https://github.com/adamshatzkamer/open-rally-computer/tree/universal-m5stack-rally-computer).
 
 ![Open Rally Computer](img/orc.png?raw=true "Open Rally Computer")
 
